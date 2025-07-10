@@ -16,7 +16,7 @@ final class CarsController extends AbstractController
     public function index(EntityManagerInterface $em, PaginatorInterface $paginator, Request $request): Response
     {
         $model = $em->getRepository(Model::class)->findAll();
-        $model = $paginator->paginate($model, $request->query->getInt('page', 1), 5);
+        $model = $paginator->paginate($model, $request->query->getInt('page', 1),5);
         return $this->render('cars/cars.html.twig', [
             'models' => $model,
         ]);
