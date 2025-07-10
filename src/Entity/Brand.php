@@ -33,6 +33,11 @@ class Brand
     #[ORM\Column(length: 255)]
     private ?string $image = null;
 
+    public function __toString(): string
+    {
+        return $this->name;
+    }
+
     public function __construct()
     {
         $this->models = new ArrayCollection();
